@@ -69,3 +69,33 @@ If botocore reports that the login credential provider needs
 ```bash
 uv sync
 ```
+
+## Deploy With CDK
+
+The CDK app in `infra.py` builds this project as a Lambda container image,
+uses the AWS Lambda Web Adapter to run Gradio on port `8080`, grants the
+function permission to invoke Bedrock, and exposes the app with a public Lambda
+Function URL.
+
+```bash
+uv sync
+aws login
+cdk bootstrap
+cdk deploy
+```
+
+Docker must be running because CDK builds the Lambda image from `Dockerfile`.
+
+If CDK cannot resolve the AWS account, refresh your AWS CLI session first:
+
+```bash
+aws login
+aws sts get-caller-identity
+```
+
+For non-default profiles, run CDK with the same profile:
+
+```bash
+AWS_PROFILE=your-profile cdk bootstrap
+AWS_PROFILE=your-profile cdk deploy
+```

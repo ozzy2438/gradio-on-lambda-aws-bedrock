@@ -1,0 +1,10 @@
+.git
+.venv
+.gradio
+cdk.out
+__pycache__
+*.pyc
+.DS_Store
+.env
+.env.*
+!.env.example
