@@ -20,3 +20,4 @@ EXPOSE 8080
 
 CMD ["/var/task/.venv/bin/python", "src/gradio_on_lambda_bedrock_aws/app.py"]
 
+# force rebuild Mon Apr 27 18:44:04 AEST 2026
